@@ -9,10 +9,6 @@ server.on('connection', (ws) => {
     clients.add(ws);
     console.log("New client connected.");
 
-    // Приветственное сообщение для нового клиента
-    ws.send(JSON.stringify({ type: 'system', message: 'Welcome to the chat!' }));
-
-    // Обработка сообщений от клиента
     ws.on('message', (data) => {
         const message = JSON.parse(data);
         console.log("Received message:", message);
